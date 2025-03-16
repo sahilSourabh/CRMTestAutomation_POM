@@ -1,5 +1,11 @@
 package com.crm.qa.testcases;
 
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -25,8 +31,9 @@ public class HomePageTest extends BasePage {
 	public void setUp() {
 		initialization();
 		loginPage = new LoginPage();
+		TestUtil testUtil = new TestUtil();
 		homePage = loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
-		TestUtil.switchToFrame();
+		testUtil.switchToFrame();
 	}
 	
 	@Test(priority = 1)
@@ -42,8 +49,15 @@ public class HomePageTest extends BasePage {
 	}
 	
 	@Test(priority=3)
-	public void gotoContactsPageTest() {
+	public void verifyContactsLinkTest() {
 		contactsPage = homePage.clickOnContactsLink();
 	}
+	
+	@Test(priority=4)
+	public void clickOnNewContactTest() {
+		homePage.clickOnNewContactLink();
+	}
+	
+	
 
 }

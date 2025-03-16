@@ -2,7 +2,7 @@ package com.crm.qa.util;
 
 public class WaitUtils {
 	
-	public static void sleep (long seconds) {
+	public static void sleep(long seconds) {
 		
 		try {
 			Thread.sleep(seconds * 1000);

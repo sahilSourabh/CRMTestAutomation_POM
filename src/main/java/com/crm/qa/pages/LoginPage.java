@@ -2,6 +2,7 @@
 package com.crm.qa.pages;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -9,13 +10,15 @@ import com.crm.qa.base.BasePage;
 
 public class LoginPage extends BasePage {
 	
-	
+	@CacheLookup
 	@FindBy(css ="input[name='username']")
 	WebElement username;
 
+	@CacheLookup
 	@FindBy(css ="input[name='password']")
 	WebElement password;
 
+	@CacheLookup
 	@FindBy(css ="input[value*='Login']")
 	WebElement loginBtn;
 
